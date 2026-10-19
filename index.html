@@ -17,6 +17,7 @@
                 if (p.size) r.setAttribute('data-size', p.size);
                 if (p.contrast) r.classList.add('hc');
                 if (p.legible) r.classList.add('legible');
+                if (p.cvd) r.classList.add('cvd');
                 if (p.motion === true) r.classList.add('reduce-motion');
                 if (p.motion === false) r.classList.add('allow-motion');
             } catch (e) {}
@@ -993,6 +994,7 @@
             letter-spacing: .04em;
             text-transform: uppercase;
         }
+        .engagement-intro strong { color: #fff; }
         .engagement-intro p { margin-top: .85rem; color: #cbd5e1; font-size: clamp(.9rem, .85rem + .2vw, 1rem); line-height: 1.75; }
         .eng-grid { display: grid; gap: 1.25rem; margin-top: 2rem; }
         @media (min-width: 768px) { .eng-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
@@ -1158,6 +1160,42 @@
         html.hc .btn { border-color: #334155; color: #0b1220; }
 
         /* =========================================================
+           13 bis. MODE DALTONIEN
+           Palette Okabe-Ito (bleu / orange / pourpre), lisible pour
+           la protanopie, la deutéranopie et la tritanopie, plus des
+           formes et des motifs propres à chaque pilier.
+           ========================================================= */
+        html.cvd {
+            --p1: #0072b2; --p1-strong: #005a8c; --p1-soft: #e8f2f9; --p1-line: #b5d3e8;
+            --p2: #e69f00; --p2-strong: #8a5a00; --p2-soft: #fdf4e3; --p2-line: #efd39c;
+            --p3: #cc79a7; --p3-strong: #8e3a6f; --p3-soft: #f9edf4; --p3-line: #e8c4d9;
+        }
+        html.cvd.hc {
+            --p1-strong: #00456e; --p2-strong: #5f3e00; --p3-strong: #6b2753;
+            --p1-soft: #ffffff; --p2-soft: #ffffff; --p3-soft: #ffffff;
+            --p1-line: #00456e; --p2-line: #5f3e00; --p3-line: #6b2753;
+        }
+        /* Pastilles du sommaire : une forme par pilier */
+        html.cvd .pillar-nav .p2 .dot { border-radius: 2px; }
+        html.cvd .pillar-nav .p3 .dot { border-radius: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); width: .65rem; height: .6rem; }
+        html.cvd .pillar-nav .p0 .dot { border-radius: 1px; transform: rotate(45deg); width: .5rem; height: .5rem; }
+        /* Traits de titre et bandeaux : plein / tirets / pointillés */
+        html.cvd .p2 .pillar-head .rule,
+        html.cvd .p2.pillar .kpi-band::before {
+            background: repeating-linear-gradient(90deg, var(--accent) 0 12px, transparent 12px 18px);
+        }
+        html.cvd .p3 .pillar-head .rule,
+        html.cvd .p3.pillar .kpi-band::before {
+            background: repeating-linear-gradient(90deg, var(--accent) 0 5px, transparent 5px 10px);
+        }
+        html.cvd .p2 .acc-item::before { background: repeating-linear-gradient(180deg, var(--accent-strong) 0 10px, transparent 10px 15px); }
+        html.cvd .p3 .acc-item::before { background: repeating-linear-gradient(180deg, var(--accent-strong) 0 4px, transparent 4px 8px); }
+        /* Conclusion : jaune-orangé au lieu du vert anis */
+        html.cvd .eng-box.lime h3 { color: #ffc857; }
+        html.cvd .eng-list li::before { background: #ffc857; }
+        html.cvd .eyebrow::before { background: var(--p2); }
+
+        /* =========================================================
            14. POLICE HAUTE LISIBILITÉ
            ========================================================= */
         html.legible {
@@ -1242,6 +1280,9 @@
                     <button type="button" class="a11y-row" role="switch" aria-checked="false" data-pref="contrast">
                         <span>Contraste renforcé</span><span class="switch" aria-hidden="true"></span>
                     </button>
+                    <button type="button" class="a11y-row" role="switch" aria-checked="false" data-pref="cvd">
+                        <span>Mode daltonien</span><span class="switch" aria-hidden="true"></span>
+                    </button>
                     <button type="button" class="a11y-row" role="switch" aria-checked="false" data-pref="legible">
                         <span>Police haute lisibilité</span><span class="switch" aria-hidden="true"></span>
                     </button>
@@ -1272,9 +1313,9 @@
                 <h1 id="titre-charte" class="hero-in" style="--i:1">UN NOUVEAU REGARD SUR NOTRE MÉTIER</h1>
 
                 <div class="hero-text">
-                    <p class="hero-in" style="--i:2">Cette charte marque un nouveau départ pour CORELLY. Nous avons pris le temps de regarder nos pratiques en face, et nous avons constaté que nos habitudes ne suffisaient plus.</p>
-                    <p class="hero-in" style="--i:3">Nous avons donc choisi de réapprendre notre métier en écoutant celles et ceux qui fabriquent nos fenêtres, en nous arrêtant au moindre doute, en mesurant honnêtement ce que nous faisons et en corrigeant ce qui doit l'être.</p>
-                    <p class="hero-in" style="--i:4">Chaque engagement ci-dessous est né de cette remise en question et des idées de nos équipes. Cette démarche ne fait que commencer : nous voulons progresser chaque année, ensemble, et rendre compte de nos résultats.</p>
+                    <p class="hero-in" style="--i:2">Cette charte marque un nouveau départ pour CORELLY. Nous avons pris le temps de regarder nos pratiques en face, et nous avons constaté que <strong>nos habitudes ne suffisaient plus</strong>.</p>
+                    <p class="hero-in" style="--i:3">Nous avons donc choisi de <strong>réapprendre notre métier</strong> en écoutant celles et ceux qui fabriquent nos fenêtres, en nous arrêtant au moindre doute, en mesurant honnêtement ce que nous faisons et en corrigeant ce qui doit l'être.</p>
+                    <p class="hero-in" style="--i:4">Chaque engagement ci-dessous est né de cette remise en question et des idées de nos équipes. Cette démarche ne fait que commencer : nous voulons progresser chaque année, ensemble, et <strong>rendre compte de nos résultats</strong>.</p>
                     <p class="hero-ambition hero-in" style="--i:5">Notre objectif est clair : <strong>garder notre place de numéro 1 du marché</strong>. Nous voulons la mériter chaque jour par la qualité de nos fenêtres, la sécurité de nos équipes et le respect de nos engagements.</p>
                 </div>
 
@@ -1382,17 +1423,17 @@
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Création d'un Comité de Pilotage (COPIL) QSE/RSE et tenue de Revues de Direction hebdomadaires</li>
+                                                <li>Création d'un <strong>Comité de Pilotage (COPIL) QSE/RSE</strong> et tenue de Revues de Direction hebdomadaires</li>
                                                 <li>Décloisonnement des processus : intégration du Planning, des Expéditions et de la Maintenance aux réunions quotidiennes de production</li>
                                                 <li>Traitement systématique du journal des défauts par la méthode de résolution de problèmes (MARP) pour éliminer les causes racines</li>
-                                                <li>Planification des arrêts de lignes pour déployer une véritable maintenance préventive</li>
+                                                <li>Planification des arrêts de lignes pour déployer une <strong>véritable maintenance préventive</strong></li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
                                                 <li>100 % des processus clés dotés d'un pilote et d'indicateurs SMART<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 60&nbsp;% fin 2026, 100&nbsp;% d'ici juin 2027</span></li>
-                                                <li>Mise à disposition du programme de fabrication portée de 24h à 7 jours<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 3 jours en mars 2027, 7 jours en septembre 2027</span></li>
+                                                <li>Mise à disposition du programme de fabrication portée de <strong>24h à 7 jours</strong><span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 3 jours en mars 2027, 7 jours en septembre 2027</span></li>
                                                 <li>100 % des non-conformités récurrentes analysées en groupe MARP<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès janvier 2027, chaque analyse close en moins de 30 jours</span></li>
                                             </ul>
                                         </div>
@@ -1413,13 +1454,13 @@
                             <div id="acc-1-2" class="acc-panel" role="region" aria-labelledby="btn-acc-1-2">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Tirant les enseignements des meilleures pratiques de sûreté industrielle et de la Charte d'éthique de l'ingénieur, CORELLY fait primer la conformité et la sécurité sur toute pression liée aux délais.</p>
+                                        <p>Tirant les enseignements des meilleures pratiques de sûreté industrielle et de la Charte d'éthique de l'ingénieur, CORELLY fait primer <strong>la conformité et la sécurité sur toute pression liée aux délais</strong>.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Instauration du « STOP &amp; GO »  en atelier : <em>« Il y a un doute, je m'arrête »</em> et <em>« Je ne négocie pas les règles »</em></li>
+                                                <li>Instauration du <strong>« STOP &amp; GO »</strong>  en atelier : <em>« Il y a un doute, je m'arrête »</em> et <em>« Je ne négocie pas les règles »</em></li>
                                                 <li>Création d'un statut de <strong>lanceur d'alerte</strong> anonyme et culture de bienveillance (valoriser celui qui signale une anomalie). Classification par niveau de gravité de ces problèmes et interventions sur le terrain</li>
-                                                <li>Remise à niveau immédiate de la métrologie : réétalonnage mensuel de la machine de test de résistance angulaire des cadres. Chaque réétalonnage est consigné dans un registre (date, résultats) et signé par la personne qui l'a réalisé</li>
+                                                <li>Remise à niveau immédiate de la métrologie : <strong>réétalonnage mensuel</strong> de la machine de test de résistance angulaire des cadres. Chaque réétalonnage est consigné dans un registre (date, résultats) et signé par la personne qui l'a réalisé</li>
                                                 <li>Enregistrement informatique sécurisé des résultats d'essais (résistance, étanchéité) : chaque résultat est sauvegardé, daté et associé à l'opérateur. Des niveaux d'accès définissent qui peut seulement consulter les résultats (lecture seule) et qui peut les saisir ou les modifier</li>
                                             </ul>
                                         </div>
@@ -1427,7 +1468,7 @@
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
                                                 <li>100 % des équipements de mesure et bancs d'essai étalonnés à jour<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% d'ici décembre 2026, puis contrôle chaque mois</span></li>
-                                                <li>0 produit expédié sans validation complète des contrôles de résistance (≥ 8 kN)<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès novembre 2026, vérifié par un audit interne chaque trimestre</span></li>
+                                                <li><strong>0 produit expédié</strong> sans validation complète des contrôles de résistance (≥ 8 kN)<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès novembre 2026, vérifié par un audit interne chaque trimestre</span></li>
                                                 <li>100 % des problèmes remontés classés par gravité, avec une intervention sur le terrain le jour même pour les problèmes critiques et un traitement sous 48 heures pour les autres. Aucun produit n'est envoyé tant que les problèmes n'ont pas été traités.<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 90&nbsp;% fin 2026, 100&nbsp;% d'ici mars 2027</span></li>
                                             </ul>
                                         </div>
@@ -1448,14 +1489,14 @@
                             <div id="acc-1-3" class="acc-panel" role="region" aria-labelledby="btn-acc-1-3">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Conformément à la loi de 2017 sur le devoir de vigilance, CORELLY s'assure que ses fournisseurs et sous-traitants respectent les droits des travailleurs et l'environnement, et livrent des matières de qualité. Nous les contrôlons, et nous les accompagnons aussi pour qu'ils progressent avec nous.</p>
+                                        <p>Conformément à la <strong>loi de 2017 sur le devoir de vigilance</strong>, CORELLY s'assure que ses fournisseurs et sous-traitants respectent les droits des travailleurs et l'environnement, et livrent des matières de qualité. Nous les contrôlons, et nous les accompagnons aussi pour qu'ils progressent avec nous.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
                                                 <li>Annexion obligatoire de la Charte Achats Responsables à tous les contrats de sous-traitance</li>
-                                                <li>Audit social et environnemental de notre fournisseur principal en Chine (conditions de travail et traçabilité des matières premières). Mise en place d'un plan d'actions en fonction des résultats de l'audit</li>
+                                                <li><strong>Audit social et environnemental</strong> de notre fournisseur principal en Chine (conditions de travail et traçabilité des matières premières). Mise en place d'un plan d'actions en fonction des résultats de l'audit</li>
                                                 <li>Diversification vers des fournisseurs européens/locaux pour sécuriser les approvisionnements</li>
-                                                <li>Mise en place d'un contrôle qualité systématique à réception des profilés, vitrages et armatures. Chaque contrôle est consigné dans un registre (date, résultats) et signé par la personne qui l'a réalisé</li>
+                                                <li>Mise en place d'un <strong>contrôle qualité systématique à réception</strong> des profilés, vitrages et armatures. Chaque contrôle est consigné dans un registre (date, résultats) et signé par la personne qui l'a réalisé</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
@@ -1552,13 +1593,13 @@
                             <div id="acc-2-1" class="acc-panel" role="region" aria-labelledby="btn-acc-2-1">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Face à l'urgence climatique (GIEC), CORELLY mesure et réduit l'impact environnemental de ses fenêtres PVC et baies vitrées sur l'ensemble de leur cycle de vie.</p>
+                                        <p>Face à l'urgence climatique (GIEC), CORELLY mesure et réduit l'impact environnemental de ses fenêtres PVC et baies vitrées sur <strong>l'ensemble de leur cycle de vie</strong>.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
                                                 <li>Réalisation du <strong>Bilan Carbone</strong> complet de l'entreprise et de l'<strong>Analyse du Cycle de Vie (ACV)</strong> de nos menuiseries. Mise en place d'un plan d'actions pour améliorer le Bilan Carbonne de Corelly</li>
-                                                <li>Optimisation des tournées logistiques en regroupant par zone géographique les livraisons pour réduire les kilomètres parcourus</li>
-                                                <li>Sobriété numérique et administrative : mise en place d'un ERP unifié pour gérer les stocks et les différents mouvements</li>
+                                                <li>Optimisation des tournées logistiques en <strong>regroupant par zone géographique les livraisons</strong> pour réduire les kilomètres parcourus</li>
+                                                <li>Sobriété numérique et administrative : mise en place d'un <strong>ERP unifié</strong> pour gérer les stocks et les différents mouvements</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
@@ -1566,7 +1607,7 @@
                                             <ul class="kpi-list" role="list">
                                                 <li>100 % des gammes phares couvertes par une ACV détaillée<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 1re gamme fin 2027, 100&nbsp;% des gammes phares fin 2028</span></li>
                                                 <li>0 bon papier redondant en gestion des stocks <span class="goal"><span class="goal-label">Objectif&nbsp;:</span> ERP en service en juin 2027, 0 bon papier fin 2027</span></li>
-                                                <li>Réduction de 15 % des émissions CO₂ liées au transport amont/aval d'ici 2 ans<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -7&nbsp;% fin 2027, -15&nbsp;% fin 2028 (base 2026)</span></li>
+                                                <li><strong>Réduction de 15 % des émissions CO₂</strong> liées au transport amont/aval d'ici 2 ans<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -7&nbsp;% fin 2027, -15&nbsp;% fin 2028 (base 2026)</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1590,15 +1631,15 @@
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Mise en place de chariots compartimentés protégeant les cadres des produits tout au long de la ligne</li>
+                                                <li>Mise en place de <strong>chariots compartimentés</strong> protégeant les cadres des produits tout au long de la ligne</li>
                                                 <li>Remplacement préventif des lames usées et réglage des vitesses de coupe pour réduire les chutes et rebuts de profilés</li>
-                                                <li>Tri sélectif rigoureux des chutes de PVC, d'armatures acier et de verre en atelier pour réintégration en filière de recyclage</li>
+                                                <li><strong>Tri sélectif rigoureux</strong> des chutes de PVC, d'armatures acier et de verre en atelier pour réintégration en filière de recyclage</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li>Baisse de 50 % du taux de rebuts internes liés aux chocs et aux erreurs de coupe<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (base 2026)</span></li>
+                                                <li><strong>Baisse de 50 % du taux de rebuts internes</strong> liés aux chocs et aux erreurs de coupe<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (base 2026)</span></li>
                                                 <li>Taux de valorisation et recyclage des déchets d'atelier supérieur à 80 %<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 65&nbsp;% fin 2027, plus de 80&nbsp;% fin 2028</span></li>
                                             </ul>
                                         </div>
@@ -1619,13 +1660,13 @@
                             <div id="acc-2-3" class="acc-panel" role="region" aria-labelledby="btn-acc-2-3">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Face aux critiques sur l'impact environnemental des matières plastiques, CORELLY développe l'écoconception de ses profilés PVC/aluminium et fiabilise la gestion de ses conditionnements.</p>
+                                        <p>Face aux critiques sur l'impact environnemental des matières plastiques, CORELLY développe <strong>l'écoconception</strong> de ses profilés PVC/aluminium et fiabilise la gestion de ses conditionnements.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Intégration progressive de PVC recyclé et d'acier recyclé dans l'extrusion des profilés et armatures</li>
+                                                <li>Intégration progressive de <strong>PVC recyclé et d'acier recyclé</strong> dans l'extrusion des profilés et armatures</li>
                                                 <li>Sécurisation des stocks d'emballages et utilisation d'emballages écoconçus ou consignés avec nos clients grands comptes</li>
-                                                <li>Adhésion à l'éco-organisme VALOBAT et engagement dans la démarche FERVAM des fabricants de fenêtres, pour la reprise et le recyclage de nos fenêtres et baies vitrées en fin de vie</li>
+                                                <li>Adhésion à l'éco-organisme <strong>VALOBAT</strong> et engagement dans la démarche <strong>FERVAM</strong> des fabricants de fenêtres, pour la reprise et le recyclage de nos fenêtres et baies vitrées en fin de vie</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
@@ -1736,15 +1777,15 @@
                                             <ul class="check-list" role="list">
                                                 <li>Mise en place d'un plan d'actions suite à l'étude ergonomique réalisée sur le poste critique de <strong>pose des armatures dans les profilés</strong> (aide à la manutention et table réglable)</li>
                                                 <li>Réorganisation du transfert des cadres entre postes et dégagement complet des allées encombrées</li>
-                                                <li>Mise en place d'un cheminement complet et signalisé dans l'atelier, de la réception des matières jusqu'aux expéditions : marquage au sol des allées, séparation des circulations piétons et chariots, panneaux aux croisements</li>
-                                                <li>Accueil sécurité obligatoire pour chaque nouvel arrivant et intérimaire : présentation des zones à risque de l'atelier, remise et explication des EPI (équipements de protection individuelle), livret d'accueil et fiches de poste visuelles</li>
+                                                <li>Mise en place d'un <strong>cheminement complet et signalisé</strong> dans l'atelier, de la réception des matières jusqu'aux expéditions : marquage au sol des allées, séparation des circulations piétons et chariots, panneaux aux croisements</li>
+                                                <li><strong>Accueil sécurité obligatoire</strong> pour chaque nouvel arrivant et intérimaire : présentation des zones à risque de l'atelier, remise et explication des EPI (équipements de protection individuelle), livret d'accueil et fiches de poste visuelles</li>
                                                 <li>Plan d'action contre les troubles musculo-squelettiques (TMS) construit avec le CSE et suivi chaque trimestre</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li>0 nouvel arrêt de travail lié aux TMS ou douleurs dorsales<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -30&nbsp;% de jours d'arrêt fin 2027, 0 nouvel arrêt en 2028</span></li>
+                                                <li><strong>0 nouvel arrêt de travail</strong> lié aux TMS ou douleurs dorsales<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -30&nbsp;% de jours d'arrêt fin 2027, 0 nouvel arrêt en 2028</span></li>
                                                 <li>100 % des postes à risques équipés selon les préconisations de l'ergonome<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> poste de pose des armatures équipé en mars 2027, 100&nbsp;% des postes fin 2027</span></li>
                                                 <li>100 % des nouveaux arrivants et intérimaires ayant suivi l'accueil sécurité (EPI, zones à risque) avant leur prise de poste<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès janvier 2027</span></li>
                                                 <li>100 % des allées dégagées et signalisées, vérifiées lors d'un tour terrain chaque semaine<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> marquage au sol terminé en février 2027, puis 100&nbsp;% à chaque tour</span></li>
@@ -1767,12 +1808,12 @@
                             <div id="acc-3-2" class="acc-panel" role="region" aria-labelledby="btn-acc-3-2">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Pour fidéliser nos équipes et limiter les départs, nous voulons redonner du sens au travail : instaurer la confiance, oser se dire les choses, écouter les solutions proposées par le terrain et s'engager ensemble sur des résultats, tout en développant les compétences de chacun.</p>
+                                        <p>Pour fidéliser nos équipes et limiter les départs, nous voulons <strong>redonner du sens au travail</strong> : instaurer la confiance, oser se dire les choses, écouter les solutions proposées par le terrain et s'engager ensemble sur des résultats, tout en développant les compétences de chacun.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Mise en place de rituels d'écoute participative entre le management et les opérateurs sur les propositions d'amélioration</li>
-                                                <li>Évalution de niveau des opérateurs et des intérimaires. Enquêtes régulières auprès des salariés avec retour d'expérience : les résultats sont analysés avec chaque équipe pour définir 3 actions concrètes à mettre en place</li>
+                                                <li>Mise en place de <strong>rituels d'écoute participative</strong> entre le management et les opérateurs sur les propositions d'amélioration</li>
+                                                <li>Évalution de niveau des opérateurs et des intérimaires. Enquêtes régulières auprès des salariés avec retour d'expérience : les résultats sont analysés avec chaque équipe pour définir <strong>3 actions concrètes</strong> à mettre en place</li>
                                                 <li>Formation technique des opérateurs et intérimaires aux réglages machines (vitesses de coupe, changement des lames) et à la métrologie</li>
                                                 <li>Valorisation des comportements solidaires et des initiatives qualité/sécurité</li>
                                                 <li>Partenariat avec nos agences d'intérim pour faire revenir en priorité les intérimaires qui connaissent déjà CORELLY, ses postes et ses règles de sécurité</li>
@@ -1781,7 +1822,7 @@
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li>Réduction de 50 % du taux de turn-over sur 12 mois<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (taux mesuré sur 12 mois glissants, base 2026)</span></li>
+                                                <li><strong>Réduction de 50 % du taux de turn-over</strong> sur 12 mois<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (taux mesuré sur 12 mois glissants, base 2026)</span></li>
                                                 <li>Enquête annuelle de satisfaction et de climat social auprès de 100 % des salariés<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 1re enquête en mars 2027, au moins 70&nbsp;% de répondants</span></li>
                                                 <li>100 % des opérateurs évalués chaque année, avec un plan de formation adapté<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% évalués d'ici juin 2027, puis chaque année</span></li>
                                             </ul>
@@ -1803,22 +1844,22 @@
                             <div id="acc-3-3" class="acc-panel" role="region" aria-labelledby="btn-acc-3-3">
                                 <div class="acc-inner">
                                     <div class="acc-content">
-                                        <p>Pour répondre aux exigences de nos clients, CORELLY garantit la fiabilité de ses fenêtres et baies vitrées à chaque étape avec un contrôle en atelier, au stockage, lors du conditionnement, de la livraison et de la pose.</p>
+                                        <p>Pour répondre aux exigences de nos clients, CORELLY garantit la fiabilité de ses fenêtres et baies vitrées <strong>à chaque étape</strong> avec un contrôle en atelier, au stockage, lors du conditionnement, de la livraison et de la pose.</p>
                                         <div>
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Exemples d'actions menées :</p>
                                             <ul class="check-list" role="list">
-                                                <li>Vérification systématique sur banc d'essai de la résistance angulaire (8 kN) et de l'étanchéité eau/vent (jusqu'à 600 Pa et 120 km/h)</li>
-                                                <li>Création d'une zone de stockage dédiée entre la sortie du contrôle qualité et le conditionnement, pour protéger les menuiseries validées et ne jamais les mélanger avec des produits non contrôlés</li>
+                                                <li>Vérification systématique sur banc d'essai de la <strong>résistance angulaire (8 kN)</strong> et de l'<strong>étanchéité eau/vent</strong> (jusqu'à 600 Pa et 120 km/h)</li>
+                                                <li>Création d'une <strong>zone de stockage dédiée</strong> entre la sortie du contrôle qualité et le conditionnement, pour protéger les menuiseries validées et ne jamais les mélanger avec des produits non contrôlés</li>
                                                 <li>Conditionnement sur-mesure systématiquement disponible pour protéger les vitrages jusqu'au chantier</li>
                                                 <li>Chargements préparés à l'avance pour respecter les créneaux des transporteurs</li>
-                                                <li>Remise d'un descriptif de pose avec chaque baie vitrée, conforme aux normes en vigueur et au DTU 36.5 (mise en œuvre des fenêtres et portes extérieures), et contrôles sur chantier pour vérifier que la pose respecte ces règles</li>
+                                                <li>Remise d'un descriptif de pose avec chaque baie vitrée, conforme aux normes en vigueur et au <strong>DTU 36.5</strong> (mise en œuvre des fenêtres et portes extérieures), et contrôles sur chantier pour vérifier que la pose respecte ces règles</li>
                                             </ul>
                                         </div>
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
                                                 <li>0 incident sécurité client et 100 % des contrats publics maintenus<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> en continu dès janvier 2027, suivi chaque mois en revue de direction</span></li>
-                                                <li>Taux de service et de livraison conforme à 98 %<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 95&nbsp;% fin 2027, 98&nbsp;% fin 2028</span></li>
+                                                <li>Taux de service et de livraison conforme à <strong>98 %</strong><span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 95&nbsp;% fin 2027, 98&nbsp;% fin 2028</span></li>
                                                 <li>0 menuiserie endommagée entre le contrôle qualité et l'expédition<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès l'ouverture de la zone de stockage dédiée, en mars 2027</span></li>
                                                 <li>100 % des baies vitrées livrées avec leur descriptif de pose<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès janvier 2027</span></li>
                                             </ul>
@@ -1870,7 +1911,7 @@
                     <div class="engagement-intro">
                         <span class="eyebrow-dark">Notre engagement</span>
                         <h2 id="titre-engagement">Une charte vivante, portée par tous</h2>
-                        <p>Cette charte évoluera avec nous : elle sera revue chaque année avec nos équipes, à partir des résultats obtenus et des idées remontées du terrain. Chaque collaborateur, chaque fournisseur et chaque partenaire a un rôle à jouer pour la faire vivre.</p>
+                        <p>Cette charte évoluera avec nous : elle sera <strong>revue chaque année avec nos équipes</strong>, à partir des résultats obtenus et des idées remontées du terrain. Chaque collaborateur, chaque fournisseur et chaque partenaire a un rôle à jouer pour la faire vivre.</p>
                     </div>
 
                     <div class="eng-grid">
@@ -2107,7 +2148,7 @@
         /* ---------- Panneau d'accessibilité ---------- */
         var STORE = 'corelly-a11y';
         var SIZES = ['100 %', '115 %', '130 %', '145 %'];
-        var prefs = { size: 0, contrast: false, legible: false, motion: null };
+        var prefs = { size: 0, contrast: false, cvd: false, legible: false, motion: null };
         try {
             var saved = JSON.parse(localStorage.getItem(STORE) || '{}');
             Object.keys(prefs).forEach(function (k) { if (k in saved) prefs[k] = saved[k]; });
@@ -2125,6 +2166,7 @@
             if (prefs.size) root.setAttribute('data-size', prefs.size); else root.removeAttribute('data-size');
             root.classList.toggle('hc', !!prefs.contrast);
             root.classList.toggle('legible', !!prefs.legible);
+            root.classList.toggle('cvd', !!prefs.cvd);
             root.classList.toggle('reduce-motion', prefs.motion === true);
             root.classList.toggle('allow-motion', prefs.motion === false);
             sizeOut.textContent = SIZES[prefs.size] || SIZES[0];
@@ -2154,7 +2196,7 @@
             });
         });
         document.getElementById('a11yReset').addEventListener('click', function () {
-            prefs = { size: 0, contrast: false, legible: false, motion: null };
+            prefs = { size: 0, contrast: false, cvd: false, legible: false, motion: null };
             apply();
             try { localStorage.removeItem(STORE); } catch (e) {}
         });
