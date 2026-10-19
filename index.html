@@ -528,6 +528,10 @@
             font-weight: 500;
         }
         .hero-ambition strong { font-weight: 800; }
+        .hero-ambition .ambition-red { color: #b3191d; }          /* rouge du logo CGs */
+        html.hc .hero-ambition .ambition-red { color: #8f0000; }
+        html.dark .hero-ambition .ambition-red { color: #ff7b72; }
+        html.hc.dark .hero-ambition .ambition-red { color: #ffa198; }
 
         /* Sommaire visuel des trois piliers */
         .pillar-cards {
@@ -1432,7 +1436,7 @@
                     <p class="hero-in" style="--i:2">Cette charte marque un nouveau départ pour CORELLY. Nous avons pris le temps de regarder nos pratiques en face, et nous avons constaté que <strong>nos habitudes ne suffisaient plus</strong>.</p>
                     <p class="hero-in" style="--i:3">Nous avons donc choisi de <strong>réapprendre notre métier</strong> en écoutant celles et ceux qui fabriquent nos fenêtres, en nous arrêtant au moindre doute, en mesurant honnêtement ce que nous faisons et en corrigeant ce qui doit l'être.</p>
                     <p class="hero-in" style="--i:4">Chaque engagement ci-dessous est né de cette remise en question et des idées de nos équipes. Cette démarche ne fait que commencer : nous voulons progresser chaque année, ensemble, et <strong>rendre compte de nos résultats</strong>.</p>
-                    <p class="hero-ambition hero-in" style="--i:5">Notre objectif est clair : <strong>garder notre place de numéro 1 du marché</strong>. Nous voulons la mériter chaque jour par la qualité de nos fenêtres, la sécurité de nos équipes et le respect de nos engagements.</p>
+                    <p class="hero-ambition hero-in" style="--i:5">Notre objectif est clair : <strong class="ambition-red">garder notre place de numéro 1 du marché</strong>. Nous voulons la mériter chaque jour par la qualité de nos fenêtres, la sécurité de nos équipes et le respect de nos engagements.</p>
                 </div>
 
                 <!-- Accès direct aux trois piliers -->
@@ -1548,9 +1552,9 @@
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li>100 % des processus clés dotés d'un pilote et d'indicateurs SMART<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 60&nbsp;% fin 2026, 100&nbsp;% d'ici juin 2027</span></li>
+                                                <li>100 % des processus clés dotés d'un pilote et d'indicateurs SMART<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> pilotes nommés en décembre 2026, indicateurs SMART pour 100&nbsp;% des processus en juin 2027</span></li>
                                                 <li>Mise à disposition du programme de fabrication portée de <strong>24h à 7 jours</strong><span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 3 jours en mars 2027, 7 jours en septembre 2027</span></li>
-                                                <li>100 % des non-conformités récurrentes analysées en groupe MARP<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès janvier 2027, chaque analyse close en moins de 30 jours</span></li>
+                                                <li>100 % des non-conformités récurrentes analysées en groupe MARP<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès mars 2027, après formation des équipes, chaque analyse close en moins de 30 jours</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1584,8 +1588,8 @@
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
                                                 <li>100 % des équipements de mesure et bancs d'essai étalonnés à jour<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% d'ici décembre 2026, puis contrôle chaque mois</span></li>
-                                                <li><strong>0 produit expédié</strong> sans validation complète des contrôles de résistance (≥ 8 kN)<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès novembre 2026, vérifié par un audit interne chaque trimestre</span></li>
-                                                <li>100 % des problèmes remontés classés par gravité, avec une intervention sur le terrain le jour même pour les problèmes critiques et un traitement sous 48 heures pour les autres. Aucun produit n'est envoyé tant que les problèmes n'ont pas été traités.<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 90&nbsp;% fin 2026, 100&nbsp;% d'ici mars 2027</span></li>
+                                                <li><strong>0 produit expédié</strong> sans validation complète des contrôles de résistance (≥ 8 kN)<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès janvier 2027, une fois les bancs réétalonnés, vérifié par un audit interne chaque trimestre</span></li>
+                                                <li>100 % des problèmes remontés classés par gravité, avec une intervention sur le terrain le jour même pour les problèmes critiques et un traitement sous 48 heures pour les autres. Aucun produit n'est envoyé tant que les problèmes n'ont pas été traités.<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès mars 2027</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1722,8 +1726,8 @@
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
                                                 <li>100 % des gammes phares couvertes par une ACV détaillée<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 1re gamme fin 2027, 100&nbsp;% des gammes phares fin 2028</span></li>
-                                                <li>0 bon papier redondant en gestion des stocks <span class="goal"><span class="goal-label">Objectif&nbsp;:</span> ERP en service en juin 2027, 0 bon papier fin 2027</span></li>
-                                                <li><strong>Réduction de 15 % des émissions CO₂</strong> liées au transport amont/aval d'ici 2 ans<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -7&nbsp;% fin 2027, -15&nbsp;% fin 2028 (base 2026)</span></li>
+                                                <li>0 bon papier redondant en gestion des stocks <span class="goal"><span class="goal-label">Objectif&nbsp;:</span> ERP en service en septembre 2027, 0 bon papier en mars 2028</span></li>
+                                                <li><strong>Réduction de 15 % des émissions CO₂</strong> liées au transport amont/aval d'ici 2 ans<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -7&nbsp;% fin 2027, -15&nbsp;% fin 2028</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1755,7 +1759,7 @@
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li><strong>Baisse de 50 % du taux de rebuts internes</strong> liés aux chocs et aux erreurs de coupe<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (base 2026)</span></li>
+                                                <li><strong>Baisse de 50 % du taux de rebuts internes</strong> liés aux chocs et aux erreurs de coupe<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028</span></li>
                                                 <li>Taux de valorisation et recyclage des déchets d'atelier supérieur à 80 %<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 65&nbsp;% fin 2027, plus de 80&nbsp;% fin 2028</span></li>
                                             </ul>
                                         </div>
@@ -1938,7 +1942,7 @@
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li><strong>Réduction de 50 % du taux de turn-over</strong> sur 12 mois<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> -25&nbsp;% fin 2027, -50&nbsp;% fin 2028 (taux mesuré sur 12 mois glissants, base 2026)</span></li>
+                                                <li><strong>Réduction de 50 % du taux de turn-over</strong> sur 12 mois<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 2 fois moins de départs en 12 mois, de janvier à décembre 2027</span></li>
                                                 <li>Enquête annuelle de satisfaction et de climat social auprès de 100 % des salariés<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 1re enquête en mars 2027, au moins 70&nbsp;% de répondants</span></li>
                                                 <li>100 % des opérateurs évalués chaque année, avec un plan de formation adapté<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% évalués d'ici juin 2027, puis chaque année</span></li>
                                             </ul>
@@ -1974,10 +1978,11 @@
                                         <div class="kpis">
                                             <p class="block-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg>Indicateurs clés :</p>
                                             <ul class="kpi-list" role="list">
-                                                <li>0 incident sécurité client et 100 % des contrats publics maintenus<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> en continu dès janvier 2027, suivi chaque mois en revue de direction</span></li>
-                                                <li>Taux de service et de livraison conforme à <strong>98 %</strong><span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 95&nbsp;% fin 2027, 98&nbsp;% fin 2028</span></li>
+                                                <li>0 incident sécurité client et 100 % des contrats publics maintenus<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> dès janvier 2027, suivi en revue de direction</span></li>
+                                                <li>Taux de service et de livraison conforme à <strong>98 %</strong><span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 96&nbsp;% fin 2027, 98&nbsp;% fin 2028</span></li>
                                                 <li>0 menuiserie endommagée entre le contrôle qualité et l'expédition<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 0 dès l'ouverture de la zone de stockage dédiée, en mars 2027</span></li>
                                                 <li>100 % des baies vitrées livrées avec leur descriptif de pose<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 100&nbsp;% dès janvier 2027</span></li>
+                                                <li>95 % de clients et collectivités satisfaits<span class="goal"><span class="goal-label">Objectif&nbsp;:</span> 95&nbsp;% fin 2027, mesuré par une enquête client annuelle</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1995,7 +2000,7 @@
                         <li class="kpi">
                             <div class="kpi-value"><span class="kpi-big" data-count>-30%</span> <span class="kpi-rest">de jours d'arrêt liés aux TMS sur 1 an</span></div>
                             <p class="kpi-label">Grâce à la mise en œuvre d’actions ergonomiques et de prévention</p>
-                            <p class="kpi-goal"><span class="goal-label">Objectif&nbsp;:</span> fin 2027 (base 2026)</p>
+                            <p class="kpi-goal"><span class="goal-label">Objectif&nbsp;:</span> fin 2027</p>
                         </li>
                         <li class="kpi">
                             <div class="kpi-value" data-count>100%</div>
@@ -2005,7 +2010,7 @@
                         <li class="kpi">
                             <div class="kpi-value" data-count>95%</div>
                             <p class="kpi-label">Taux de satisfaction visé auprès de nos clients et collectivités</p>
-                            <p class="kpi-goal"><span class="goal-label">Objectif&nbsp;:</span> 90&nbsp;% fin 2027, 95&nbsp;% fin 2028</p>
+                            <p class="kpi-goal"><span class="goal-label">Objectif&nbsp;:</span> 95&nbsp;% fin 2027, mesuré par une enquête client annuelle</p>
                         </li>
                         <li class="kpi">
                             <div class="kpi-value" data-count>100%</div>
